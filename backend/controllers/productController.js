@@ -1,5 +1,6 @@
 const Productmodel = require("../models/productmodel");
 const ErrorHandler = require("../utils/errorHandler");
+const APIFeatures = require('../utils/apiFeatures');
 
 // ErrorHandler promise
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
@@ -8,6 +9,7 @@ const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 // Create new product  => /api/v1/product/new
 
 exports.newProduct = catchAsyncErrors(async(req, res, next) => {
+
     const product = await Productmodel.create(req.body);
 
     res.status(201).json({
@@ -20,15 +22,35 @@ exports.newProduct = catchAsyncErrors(async(req, res, next) => {
 // Get all products => /api/v1/products
 exports.getProducts = catchAsyncErrors(async(req, res, next) => {
 
-    const products = await Productmodel.find();
+    const resPerPage = 3;
+    const productCount = await Productmodel.countDocuments();
+
+
+    // const UnitOfItem = new APIFeatures(Productmodel.find(), req.query)
+    // .searchByUnitOfItem()
+    // .filter();
+    // const conditiontoGoods = new APIFeatures(Productmodel.find(), req.query)
+    // .searchByconditiontoGoods()
+    // .filter();
+    const categoryOfAsset = new APIFeatures(Productmodel.find(), req.query)
+        .searchBycategoryOfAsset()
+        .filter()
+        .pagination(resPerPage);
+
+    // let productsUnit = await UnitOfItem.query;
+    // let productsCondition = await conditiontoGoods.query;
+    let productsCategory = await categoryOfAsset.query;
+
 
     res.status(200).json({
         success: true,
-        count: products.length,
-        products
+        count: productsCategory.length,
+        // productsUnit,
+        // productsCondition,
+        productCount,
+        productsCategory
     });
 })
-
 
 // Get single product details => /api/v1/product/:id
 

@@ -32,6 +32,9 @@ exports.getProducts = catchAsyncErrors(async(req, res, next) => {
     // const conditiontoGoods = new APIFeatures(Productmodel.find(), req.query)
     // .searchByconditiontoGoods()
     // .filter();
+
+
+
     const categoryOfAsset = new APIFeatures(Productmodel.find(), req.query)
         .searchBycategoryOfAsset()
         .filter()
@@ -39,17 +42,21 @@ exports.getProducts = catchAsyncErrors(async(req, res, next) => {
 
     // let productsUnit = await UnitOfItem.query;
     // let productsCondition = await conditiontoGoods.query;
+
     let productsCategory = await categoryOfAsset.query;
+    setTimeout(() => {
+
+        res.status(200).json({
+            success: true,
+            // count: productsCategory.length,
+            // productsUnit,
+            // productsCondition,
+            productCount,
+            productsCategory
+        });
+    }, 2000);
 
 
-    res.status(200).json({
-        success: true,
-        // count: productsCategory.length,
-        // productsUnit,
-        // productsCondition,
-        productCount,
-        productsCategory
-    });
 })
 
 // Get single product details => /api/v1/product/:id

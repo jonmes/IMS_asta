@@ -1,8 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 
-const Request = styled.a`
+const Request = styled(Link)`
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 10px;
@@ -32,7 +33,7 @@ const Product = ({ product }) => {
   <span className="total"> {product.count} </span>
   <span className="condition"> {product.conditiontoGoods} </span>
   <span className="last-movment"> {product.LastDateOfMovment} </span>
-  <Request href={`/product/${product._id}`}>Request</Request>
+  <Request to={`/product/${product._id}`}>Request</Request>
 </a>;
 };
 

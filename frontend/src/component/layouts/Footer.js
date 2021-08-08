@@ -1,13 +1,16 @@
 import React, { Fragment } from "react";
 
 const Footer = () => {
-  return <Fragment>
+  return (
+    <Fragment>
       <footer className="py-1">
-                <p className="text-center mt-1">
-                    Inventory Management System (IMS) for Addis Ababa Science And Technology Agency - 2021, All Rights Reserved
-                </p>
-            </footer>
-  </Fragment>;
+        <p className="text-center mt-1">
+          Inventory Management System (IMS) for Addis Ababa Science And
+          Technology Agency - 2021, All Rights Reserved
+        </p>
+      </footer>
+    </Fragment>
+  );
 };
 
 export default Footer;

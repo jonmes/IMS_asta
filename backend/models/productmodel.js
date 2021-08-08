@@ -9,9 +9,13 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please enter unit of item']
     },
+    name: {
+        type: String,
+        required: [true, 'Please enter the name of the product']
+    },
     categoryOfAsset: {
         type: String,
-        required: [true, 'Please enter category of asset']
+        required: [true, 'Please enter category of product']
     },
     count: {
         type: String,
@@ -27,7 +31,7 @@ const productSchema = new mongoose.Schema({
     },
     conditiontoGoods: {
         type: String,
-        required: [true, 'Please enter the condition of the goods']
+        required: [true, 'Please enter the condition of the product']
     },
     LastDateOfMovment: {
         type: String,

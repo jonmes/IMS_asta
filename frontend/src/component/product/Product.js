@@ -12,9 +12,10 @@ const Request = styled(Link)`
     border-radius: 10px;
     justify-content: center;
     &:hover{
+      z-index: 10000;
         color: #00570e;
         background: #21f344 !important;
-        box-shadow: 0 0 10px #21f344, 0 0 40px #21f344, 0 0 80px #21f344;
+        box-shadow: 0 0 10px #21f344, 0 0 40px #21f344, 0 0 80px #21f344 !important;
         cursor: pointer;
     }
 
@@ -23,7 +24,7 @@ const Request = styled(Link)`
 const Product = ({ product }) => {
   return <a
   href="/"
-  class="list-group-item list-group-item-action list-group-item-dark"
+  class="list-group-item list-group-item-action"
   key={product._id}
 >
   <span className="number"> {product.id} </span>

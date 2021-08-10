@@ -22,7 +22,7 @@ exports.newProduct = catchAsyncErrors(async(req, res, next) => {
 // Get all products => /api/v1/products
 exports.getProducts = catchAsyncErrors(async(req, res, next) => {
 
-    const resPerPage = 10;
+    const resPerPage = 14;
     const productCount = await Productmodel.countDocuments();
 
 
@@ -44,17 +44,17 @@ exports.getProducts = catchAsyncErrors(async(req, res, next) => {
     // let productsCondition = await conditiontoGoods.query;
 
     let productsCategory = await categoryOfAsset.query;
-    setTimeout(() => {
 
-        res.status(200).json({
-            success: true,
-            // count: productsCategory.length,
-            // productsUnit,
-            // productsCondition,
-            productCount,
-            productsCategory
-        });
-    }, 2000);
+    res.status(200).json({
+        success: true,
+        // count: productsCategory.length,
+        // productsUnit,
+        // productsCondition,
+        productCount,
+        resPerPage,
+        productsCategory
+    });
+
 
 
 })

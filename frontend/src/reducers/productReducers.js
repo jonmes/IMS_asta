@@ -1,8 +1,8 @@
-import { 
+import {
     ALL_PRODUCTS_REQUEST,
-    ALL_PRODUCTS_SUCCESS, 
+    ALL_PRODUCTS_SUCCESS,
     ALL_PRODUCTS_FAIL,
-    CLEAR_ERRORS 
+    CLEAR_ERRORS
 } from '../constants/productConstants'
 
 export const productsReducer = (state = { products: [] }, action) => {
@@ -12,19 +12,19 @@ export const productsReducer = (state = { products: [] }, action) => {
                 loading: true,
                 products: []
             }
-            case ALL_PRODUCTS_SUCCESS:
+        case ALL_PRODUCTS_SUCCESS:
             return {
                 loading: false,
                 products: action.payload.productsCategory,
-                productsCount: action.payload.productCount
+                productsCount: action.payload.productCount,
+                resPerPage: action.payload.resPerPage
             }
-
-            case ALL_PRODUCTS_FAIL:
+        case ALL_PRODUCTS_FAIL:
             return {
                 loading: false,
                 error: action.payload
             }
-            case CLEAR_ERRORS:
+        case CLEAR_ERRORS:
             return {
                 ...state,
                 error: null

@@ -1,19 +1,22 @@
 {
-  "name": "invent",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jonmes/IMS_asta.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jonmes/IMS_asta/issues"
-  },
-  "homepage": "https://github.com/jonmes/IMS_asta#readme"
+    "name": "invent",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jonmes/IMS_asta.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jonmes/IMS_asta/issues"
+    },
+    "homepage": "https://github.com/jonmes/IMS_asta#readme",
+    "dependencies": {
+
+    }
 }

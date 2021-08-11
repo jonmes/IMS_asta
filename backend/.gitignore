@@ -1,4 +1,8 @@
 /node_modules
 
 # misc
-/config/config.env
+/backend/config/config.env
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local

@@ -7,5 +7,4 @@ const connectDatabase = () => {
         useCreateIndex: true
     }).then(con => { console.log(`MongoDB Database connected with HOST: ${con.connection.host}`) })
 }
-
 module.exports = connectDatabase

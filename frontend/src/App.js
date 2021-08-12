@@ -13,10 +13,11 @@ import Logins from "./component/user/Logins";
 import Register from "./component/user/Register";
 import Profile from "./component/user/Profile";
 import UpdateProfile from "./component/user/UpdateProfile";
+import UpdatePassword from "./component/user/UpdatePassword";
 
 
 import ProtectedRoute from "./component/route/ProtectedRoute";
-import { loadUser } from "./actions/userActions";
+import { loadUser, updatePassword } from "./actions/userActions";
 import store from "./store";
 
 const List = styled.div`
@@ -39,6 +40,7 @@ function App() {
             <Route path="/register" component={Register} />
             <ProtectedRoute path="/me" component={Profile} exact/>
             <ProtectedRoute path="/me/update" component={UpdateProfile} exact/>
+            <ProtectedRoute path="/password/update" component={UpdatePassword} exact/>
           </div>
         </List>
         <Footer />

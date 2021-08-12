@@ -39,7 +39,7 @@ import {
 } from '../constants/userConstants'
 
 // Login
-export const login = (email, password) => async (dispatch) => {
+export const login = (email, password) => async(dispatch) => {
     try {
 
         dispatch({ type: LOGIN_REQUEST })
@@ -66,7 +66,7 @@ export const login = (email, password) => async (dispatch) => {
 }
 
 // Register user
-export const register = (userData) => async (dispatch) => {
+export const register = (userData) => async(dispatch) => {
     try {
 
         dispatch({ type: REGISTER_USER_REQUEST })
@@ -93,7 +93,7 @@ export const register = (userData) => async (dispatch) => {
 }
 
 // Load user
-export const loadUser = () => async (dispatch) => {
+export const loadUser = () => async(dispatch) => {
     try {
 
         dispatch({ type: LOAD_USER_REQUEST })
@@ -114,7 +114,7 @@ export const loadUser = () => async (dispatch) => {
 }
 
 // Update profile
-export const updateProfile = (userData) => async (dispatch) => {
+export const updateProfile = (userData) => async(dispatch) => {
     try {
 
         dispatch({ type: UPDATE_PROFILE_REQUEST })
@@ -141,7 +141,7 @@ export const updateProfile = (userData) => async (dispatch) => {
 }
 
 // Update password
-export const updatePassword = (passwords) => async (dispatch) => {
+export const updatePassword = (passwords) => async(dispatch) => {
     try {
 
         dispatch({ type: UPDATE_PASSWORD_REQUEST })
@@ -168,7 +168,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
 }
 
 // Forgot password
-export const forgotPassword = (email) => async (dispatch) => {
+export const forgotPassword = (email) => async(dispatch) => {
     try {
 
         dispatch({ type: FORGOT_PASSWORD_REQUEST })
@@ -195,7 +195,7 @@ export const forgotPassword = (email) => async (dispatch) => {
 }
 
 // Reset password
-export const resetPassword = (token, passwords) => async (dispatch) => {
+export const resetPassword = (token, passwords) => async(dispatch) => {
     try {
 
         dispatch({ type: NEW_PASSWORD_REQUEST })
@@ -222,7 +222,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
 }
 
 // Logout user
-export const logout = () => async (dispatch) => {
+export const logout = () => async(dispatch) => {
     try {
 
         await axios.get('/api/v1/logout')
@@ -240,7 +240,7 @@ export const logout = () => async (dispatch) => {
 }
 
 // Get all users
-export const allUsers = () => async (dispatch) => {
+export const allUsers = () => async(dispatch) => {
     try {
 
         dispatch({ type: ALL_USERS_REQUEST })
@@ -261,7 +261,7 @@ export const allUsers = () => async (dispatch) => {
 }
 
 // Update user - ADMIN
-export const updateUser = (id, userData) => async (dispatch) => {
+export const updateUser = (id, userData) => async(dispatch) => {
     try {
 
         dispatch({ type: UPDATE_USER_REQUEST })
@@ -288,7 +288,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
 }
 
 // Get user details - ADMIN
-export const getUserDetails = (id) => async (dispatch) => {
+export const getUserDetails = (id) => async(dispatch) => {
     try {
 
         dispatch({ type: USER_DETAILS_REQUEST })
@@ -310,7 +310,7 @@ export const getUserDetails = (id) => async (dispatch) => {
 }
 
 // Delete user - ADMIN
-export const deleteUser = (id) => async (dispatch) => {
+export const deleteUser = (id) => async(dispatch) => {
     try {
 
         dispatch({ type: DELETE_USER_REQUEST })
@@ -332,7 +332,7 @@ export const deleteUser = (id) => async (dispatch) => {
 
 
 // Clear Errors
-export const clearErrors = () => async (dispatch) => {
+export const clearErrors = () => async(dispatch) => {
     dispatch({
         type: CLEAR_ERRORS
     })

@@ -23,7 +23,7 @@ const Request = styled(Link)`
 
 const Product = ({ product }) => {
   return <a
-  href="/"
+  href="#!"
   class="list-group-item list-group-item-action"
   key={product._id}
 >

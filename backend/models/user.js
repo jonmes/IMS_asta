@@ -31,6 +31,10 @@ const userSchema = new mongoose.Schema({
             required: true,
         },
     },
+    department: {
+        type: String,
+        required: [true, "Please enter your Department"]
+    },
     role: {
         type: String,
         default: 'user'

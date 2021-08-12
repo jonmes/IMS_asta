@@ -35,7 +35,7 @@ const Home = () => {
       ) : (
         <Fragment>
           <MetaData title={"Home"} />
-          <a href="/" class="list list-group-item-dark">
+          <a href="#!" class="list list-group-item-dark">
             <span className="number"> No </span>
             <span className="unit"> Unit </span>
             <span className="name"> Name </span>

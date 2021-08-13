@@ -2,4 +2,4 @@
 
 # ignore all .env files
 *.env
-backend/config/
+/backend/config/

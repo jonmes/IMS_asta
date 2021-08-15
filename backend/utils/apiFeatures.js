@@ -3,62 +3,32 @@ class APIFeatures {
         this.query = query;
         this.queryStr = queryStr;
     }
-    searchByUnitOfItem() {
+
+    search() {
         const keyword = this.queryStr.keyword ? {
-            unitOfItem: {
+            name: {
                 $regex: this.queryStr.keyword,
                 $options: 'i'
             }
         } : {}
-        console.log(keyword);
-        this.query = this.query.find({...keyword });
-        return this;
-    }
-
-    searchByconditiontoGoods() {
-        const keyword = this.queryStr.keyword ? {
-
-            conditiontoGoods: {
-                $regex: this.queryStr.keyword,
-                $options: 'i'
-            },
-        } : {}
-
-        console.log(keyword);
 
         this.query = this.query.find({...keyword });
         return this;
     }
 
-    searchBycategoryOfAsset() {
-        const keyword = this.queryStr.keyword ? {
-
-            categoryOfAsset: {
-                $regex: this.queryStr.keyword,
-                $options: 'i'
-            },
-        } : {}
-
-        console.log(keyword);
-
-        this.query = this.query.find({...keyword });
-        return this;
-    }
     filter() {
 
         const queryCopy = {...this.queryStr };
 
-        // Removing fields form the query to filter out because mongodb doesn't have keyword
-
-        const removeFields = ['keyword', 'limit', 'page'];
+        // Removing fields from the query
+        const removeFields = ['keyword', 'limit', 'page']
         removeFields.forEach(el => delete queryCopy[el]);
 
+        // Advance filter for price, ratings etc
+        let queryStr = JSON.stringify(queryCopy)
+        queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`)
 
-        // Advanced filter for count
-        let queryStr = JSON.stringify(queryCopy);
-        queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`);
 
-        console.log(queryStr);
         this.query = this.query.find(JSON.parse(queryStr));
         return this;
     }
@@ -69,7 +39,7 @@ class APIFeatures {
 
         this.query = this.query.limit(resPerPage).skip(skip);
         return this;
-
     }
 }
-module.exports = APIFeatures;
+
+module.exports = APIFeatures

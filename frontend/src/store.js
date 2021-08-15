@@ -7,6 +7,7 @@ import { authReducer, userReducer, forgotPasswordReducer } from "./reducers/user
 
 const reducer = combineReducers({
     product: productsReducer,
+    products: productsReducer,
     auth: authReducer,
     user: userReducer,
     forgotPassword: forgotPasswordReducer,

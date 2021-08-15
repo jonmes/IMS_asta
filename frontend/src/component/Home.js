@@ -2,12 +2,18 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Pagination from "react-js-pagination";
+import styled from "styled-components";
 
 import "./homelist.css";
 import MetaData from "./layouts/MetaData";
 import { getProducts } from "../actions/productActions";
 import Product from "./product/Product";
 import Loader from "./layouts/Loader";
+
+const MarginTop = styled.div`
+  margin-top: 50px;
+`;
+
 
 const Home = () => {
 
@@ -27,8 +33,11 @@ const Home = () => {
     setCurrentPage(pageNumber)
   }
 
+
   return (
-    <Fragment>
+    <MarginTop>
+
+    <Fragment style={{marginTop: '50px'}}>
       
       {loading ? (
         <Loader />
@@ -72,6 +81,7 @@ const Home = () => {
         </Fragment>
       )}
     </Fragment>
+    </MarginTop>
   );
 };
 

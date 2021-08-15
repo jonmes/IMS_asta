@@ -10,7 +10,6 @@ const Profile = () => {
 
   return (
     <Fragment>
-      
       {loading ? (
         <Loader />
       ) : (
@@ -39,11 +38,10 @@ const Profile = () => {
               <h4> Email Address </h4> <p> {user.email} </p>
               <h4> Joined On </h4>
               <p> {String(user.createdAt).substring(0, 10)} </p>
-              <h4> Department </h4>
-              <p> {user.department || '...'}</p>
+              <h4> Department </h4> <p> {user.department || "..."} </p>
               {user.role !== "admin" && (
                 <Link to="/orders/me" className="btn btn-danger btn-block mt-5">
-                  My Orders{" "}
+                  My Request
                 </Link>
               )}
               <Link

@@ -36,6 +36,15 @@ const productSchema = new mongoose.Schema({
     LastDateOfMovment: {
         type: String,
         required: [true, 'Please enter the last date of movement']
+    },
+    user: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 
 })

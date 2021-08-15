@@ -17,10 +17,11 @@ import UpdateProfile from "./component/user/UpdateProfile";
 import UpdatePassword from "./component/user/UpdatePassword";
 import ForgotPassword from "./component/user/ForgotPassword";
 import NewPassword from "./component/user/NewPassword";
-import ProductsList from "./component/admin/ProductsList";
 
 // Admin Imports
 import Dashboard from "./component/admin/Dashboard";
+import ProductsList from "./component/admin/ProductsList";
+import NewProduct from "./component/admin/NewProduct";
 
 import ProtectedRoute from "./component/route/ProtectedRoute";
 import { loadUser, updatePassword } from "./actions/userActions";
@@ -52,6 +53,7 @@ function App() {
           </div>
             <ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />
             <ProtectedRoute path="/admin/products" isAdmin={true} component={ProductsList} exact />
+            <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact/>
 
         
         <Footer />

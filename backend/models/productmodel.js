@@ -23,11 +23,11 @@ const productSchema = new mongoose.Schema({
     },
     stockCardBalance: {
         type: Number,
-        required: [true, 'Please enter Stock Card Balance']
+        required: [false, 'Please enter Stock Card Balance']
     },
     stockDiscrepancy: {
         type: Number,
-        required: [true, 'Please enter Stock Discrepancy']
+        required: [false, 'Please enter Stock Discrepancy']
     },
     conditiontoGoods: {
         type: String,

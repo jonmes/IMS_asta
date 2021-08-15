@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useEffect } from "react";
+import { useSelector } from 'react-redux';
 
 import Header from "./component/layouts/Header";
 import Footer from "./component/layouts/Footer";
@@ -34,6 +35,8 @@ function App() {
     store.dispatch(loadUser());
   }, []);
 
+  const { user, loading} = useSelector(state => state.auth)
+
   return (
     <Router>
         <Header />
@@ -55,8 +58,10 @@ function App() {
             <ProtectedRoute path="/admin/products" isAdmin={true} component={ProductsList} exact />
             <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact/>
 
+          {!loading && user.role !== 'admin' && (
+            <Footer />
+          )}
         
-        <Footer />
       </div>
     </Router>
   );

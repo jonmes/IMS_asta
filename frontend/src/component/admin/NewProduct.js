@@ -9,14 +9,14 @@ import { newProduct, clearErrors } from '../../actions/productActions'
 import { NEW_PRODUCT_RESET } from '../../constants/productConstants'
 
 const NewProduct = ({ history }) => {
-
-    const [unit, setUnit] = useState('');
+    const [id, setId] = useState('');
+    const [unitOfItem, setUnitOfItem] = useState('');
     const [name, setName] = useState('');
     // const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
-    const [stock, setStock] = useState(0);
-    const [condition, setCondition] = useState('');
-    const [lastDateOfMovement, setLastDateOfMovement] = useState('');
+    const [categoryOfAsset, setCategoryOfAsset] = useState('');
+    const [count, setcount] = useState(0);
+    const [conditiontoGoods, setconditiontoGoods] = useState('');
+    const [LastDateOfMovment, setLastDateOfMovment] = useState('');
 
     // const [images, setImages] = useState([]);
     // const [imagesPreview, setImagesPreview] = useState([])
@@ -51,13 +51,14 @@ const NewProduct = ({ history }) => {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.set('unit', unit);
+        formData.set('id', id);
+        formData.set('unitOfItem', unitOfItem);
         formData.set('name', name);
         // formData.set('description', description);
-        formData.set('category', category);
-        formData.set('stock', stock);
-        formData.set('condition', condition);
-        formData.set('lastDateOfMovement', lastDateOfMovement);
+        formData.set('categoryOfAsset', categoryOfAsset);
+        formData.set('count', count);
+        formData.set('conditiontoGoods', conditiontoGoods);
+        formData.set('LastDateOfMovment', LastDateOfMovment);
 
         // images.forEach(image => {
         //     formData.append('images', image)
@@ -103,13 +104,25 @@ const NewProduct = ({ history }) => {
                                 <h1 className="mb-4">New Product</h1>
 
                                 <div className="form-group">
-                                    <label htmlFor="unit_field">Unit</label>
+                                    <label htmlFor="id_field">ID</label>
+                                    <input
+                                        type="text"
+                                        id="ID_field"
+                                        className="form-control"
+                                        value={id}
+                                        onChange={(e) => setId(e.target.value)}
+                                    />
+                                </div>
+
+
+                                <div className="form-group">
+                                    <label htmlFor="unitOfItem_field">unitOfItem</label>
                                     <input
                                         type="text"
                                         id="price_field"
                                         className="form-control"
-                                        value={unit}
-                                        onChange={(e) => setUnit(e.target.value)}
+                                        value={unitOfItem}
+                                        onChange={(e) => setUnitOfItem(e.target.value)}
                                     />
                                 </div>
                                 
@@ -132,44 +145,44 @@ const NewProduct = ({ history }) => {
                                 </div> */}
 
                                 <div className="form-group">
-                                    <label htmlFor="category_field">Category</label>
-                                    <select className="form-control" id="category_field" value={category} onChange={(e) => setCategory(e.target.value)}>
-                                        {categories.map(category => (
-                                            <option key={category} value={category} >{category}</option>
+                                    <label htmlFor="categoryOfAsset_field">Category</label>
+                                    <select className="form-control" id="categoryOfAsset_field" value={categoryOfAsset} onChange={(e) => setCategoryOfAsset(e.target.value)}>
+                                        {categories.map(categoryOfAsset => (
+                                            <option key={categoryOfAsset} value={categoryOfAsset} >{categoryOfAsset}</option>
                                         ))}
 
                                     </select>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="stock_field">Stock</label>
+                                    <label htmlFor="count_field">count</label>
                                     <input
                                         type="number"
-                                        id="stock_field"
+                                        id="count_field"
                                         className="form-control"
-                                        value={stock}
-                                        onChange={(e) => setStock(e.target.value)}
+                                        value={count}
+                                        onChange={(e) => setcount(e.target.value)}
                                     />
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="condition_field">Condition of the good</label>
+                                    <label htmlFor="conditiontoGoods_field">conditiontoGoods of the good</label>
                                     <input
                                         type="text"
-                                        id="condition_field"
+                                        id="conditiontoGoods_field"
                                         className="form-control"
-                                        value={condition}
-                                        onChange={(e) => setCondition(e.target.value)}
+                                        value={conditiontoGoods}
+                                        onChange={(e) => setconditiontoGoods(e.target.value)}
                                     />
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="lastDateOfMovement_field">Last Date Of Movement</label>
+                                    <label htmlFor="LastDateOfMovment_field">Last Date Of Movement</label>
                                     <input
                                         type="text"
-                                        id="LastDateOfMovement_field"
+                                        id="LastDateOfMovment_field"
                                         className="form-control"
-                                        value={lastDateOfMovement}
-                                        onChange={(e) => setLastDateOfMovement(e.target.value)}
+                                        value={LastDateOfMovment}
+                                        onChange={(e) => setLastDateOfMovment(e.target.value)}
                                     />
                                 </div>
 

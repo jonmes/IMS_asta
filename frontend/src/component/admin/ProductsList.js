@@ -49,18 +49,33 @@ const ProductsList = ({ history }) => {
                     sort: 'asc'
                 },
                 {
+                    label: 'Unit',
+                    field: 'unit',
+                    sort: 'asc'
+                },
+                {
                     label: 'Name',
                     field: 'name',
                     sort: 'asc'
                 },
                 {
-                    label: 'Price',
-                    field: 'price',
+                    label: 'Category',
+                    field: 'category',
                     sort: 'asc'
                 },
                 {
                     label: 'Stock',
                     field: 'stock',
+                    sort: 'asc'
+                },
+                {
+                    label: 'Condition',
+                    field: 'condition',
+                    sort: 'asc'
+                },
+                {
+                    label: 'Last Date Of Movement',
+                    field: 'lastDateOfMovement',
                     sort: 'asc'
                 },
                 {
@@ -74,8 +89,12 @@ const ProductsList = ({ history }) => {
         products.forEach(product => {
             data.rows.push({
                 id: product._id,
+                unit: product.unitOfItem,
                 name: product.name,
+                category:product.categoryOfAsset,
                 stock: product.count,
+                condition:product.conditiontoGoods,
+                lastDateOfMovement: product.lastDateOfMovement,
                 actions: <Fragment>
                     <Link to={`/admin/product/${product._id}`} className="btn btn-primary py-1 px-2">
                         <i className="fa fa-pencil"></i>

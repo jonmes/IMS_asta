@@ -41,7 +41,7 @@ const UpdateProduct = ({ match, history }) => {
         if(product && product._id !== productId){
             dispatch(getProductDetails(productId))
         }else{
-            setId(product.name);
+            setId(product.id);
             setUnitOfItem(product.unitOfItem);
             setName(product.name);
             setCategoryOfAsset(product.categoryOfAsset);
@@ -131,7 +131,7 @@ const UpdateProduct = ({ match, history }) => {
                                 <h1 className="mb-4">Update Product</h1>
 
                                 <div className="form-group">
-                                    <label htmlFor="id_field">ID</label>
+                                    <label htmlFor="id_field">No</label>
                                     <input
                                         type="text"
                                         id="ID_field"

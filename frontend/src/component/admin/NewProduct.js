@@ -105,7 +105,7 @@ const NewProduct = ({ history }) => {
                                 <h1 className="mb-4">New Product</h1>
 
                                 <div className="form-group">
-                                    <label htmlFor="id_field">ID</label>
+                                    <label htmlFor="id_field">No</label>
                                     <input
                                         type="text"
                                         id="ID_field"

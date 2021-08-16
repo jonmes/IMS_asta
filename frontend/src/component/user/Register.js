@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 
 import MetaData from "../layouts/MetaData";
 
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { register, clearErrors } from "../../actions/userActions";
 
@@ -11,9 +11,10 @@ const Register = ({ history }) => {
     name: "",
     email: "",
     password: "",
+    department: ""
   });
 
-  const { name, email, password } = user;
+  const { name, email, password, department } = user;
 
   const [avatar, setAvatar] = useState("");
   const [avatarPreview, setAvatarPreview] = useState(
@@ -45,6 +46,7 @@ const Register = ({ history }) => {
     formData.set("name", name);
     formData.set("email", email);
     formData.set("password", password);
+    formData.set("department", department);
     formData.set("avatar", avatar);
 
     dispatch(register(formData));
@@ -112,6 +114,18 @@ const Register = ({ history }) => {
                 className="form-control"
                 name="password"
                 value={password}
+                onChange={onChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="department_field">Department</label>
+              <input
+                type="department"
+                id="department_field"
+                className="form-control"
+                name="department"
+                value={department}
                 onChange={onChange}
               />
             </div>

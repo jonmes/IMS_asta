@@ -6,8 +6,10 @@ body {
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-    background-color: #85FFBD;
-    background-image: linear-gradient(225deg, #85FFBD 0%, #FFFB7D 100%);
+    /* background-color: #85FFBD; */
+    /* background-image: linear-gradient(225deg, #85FFBD 0%, #FFFB7D 100%); */
+    background-image: url('./gradients.jpg');
+    background-size: contain;
 }
 
 
@@ -47,6 +49,7 @@ nav {
 #search_field {
     height: 2.4rem;
     padding: 1rem;
+    background: rgb(231, 231, 231);
 }
 
 #login_btn,

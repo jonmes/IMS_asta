@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
+
 
 import { useDispatch, useSelector } from "react-redux";
 import "../../App.css";
 
 import { logout } from "../../actions/userActions";
+import Search from "./Search";
 
 const Header = () => {
   // const alert = useAlert();
@@ -28,22 +30,16 @@ const Header = () => {
             </Link>
           </div>
         </div>
+    
+
+    {/* ================  Search Field ================ */}
+
 
         <div className="col-12 col-md-6 mt-2 mt-md-0">
-          <div className="input-group">
-            <input
-              type="text"
-              id="search_field"
-              className="form-control"
-              placeholder="Search For Item ..."
-            />
-            <div className="input-group-append">
-              <button id="search_btn" className="btn">
-                <i className="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
+          <Route render={({history}) => <Search history={history}/>} />
         </div>
+
+
         <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
           <Link to="/request" style={{ textDecoration: "none" }}>
             <span id="cart" className="ml-3">

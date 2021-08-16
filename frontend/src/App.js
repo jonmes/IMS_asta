@@ -46,6 +46,7 @@ function App() {
         
           <div className="container container-fluid home-list">
             <Route path="/" component={Home} exact />
+            <Route path="/search/:keyword" component={Home} />
             <Route path="/login" component={Logins} />
             <Route path="/register" component={Register} />
             <Route path="/password/forgot" component={ForgotPassword} exact />

@@ -100,7 +100,7 @@ const ProductsList = ({ history }) => {
                         <i className="fa fa-pencil"></i>
                     </Link>
                     <button className="btn btn-danger py-1 px-2 ml-2" onClick={() => deleteProductHandler(product._id)}>
-                        <i className="fa fa-trash"></i>
+                        <i className="fa fa-trash"><Link to="/admin"></Link></i>
                     </button>
                 </Fragment>
             })

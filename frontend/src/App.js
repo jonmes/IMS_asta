@@ -23,10 +23,12 @@ import NewPassword from "./component/user/NewPassword";
 import Dashboard from "./component/admin/Dashboard";
 import ProductsList from "./component/admin/ProductsList";
 import NewProduct from "./component/admin/NewProduct";
+import UpdateProduct from "./component/admin/UpdateProduct";
 
 import ProtectedRoute from "./component/route/ProtectedRoute";
 import { loadUser, updatePassword } from "./actions/userActions";
 import store from "./store";
+import { updateProduct } from "./actions/productActions";
 
 
 
@@ -35,8 +37,8 @@ function App() {
     store.dispatch(loadUser());
   }, []);
 
-  const { user, loading} = useSelector(state => state.auth)
-
+  const { user, isAuthenticated, loading} = useSelector(state => state.auth);
+  
   return (
     <Router>
         <Header />
@@ -57,10 +59,12 @@ function App() {
             <ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />
             <ProtectedRoute path="/admin/products" isAdmin={true} component={ProductsList} exact />
             <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact/>
+            <ProtectedRoute path="/admin/product/:id" isAdmin={true} component={UpdateProduct} exact/>
 
-          {/* {!loading && user.role !== 'admin' && (
+
+           {!loading && (!isAuthenticated || user.role !== 'admin') && (
             <Footer />
-          )} */}
+          )} 
         
       </div>
     </Router>

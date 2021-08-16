@@ -5,11 +5,11 @@ import Sidebar from './Sidebar'
 
 // import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
-import { newProduct, clearErrors } from '../../actions/productActions'
-import { NEW_PRODUCT_RESET } from '../../constants/productConstants'
+import { updateProduct, getProductDetails, clearErrors } from '../../actions/productActions'
+import { UPDATE_PRODUCT_RESET } from '../../constants/productConstants'
 
-const NewProduct = ({ history }) => {
-    
+const UpdateProduct = ({ match, history }) => {
+
     const [id, setId] = useState('');
     const [unitOfItem, setUnitOfItem] = useState('');
     const [name, setName] = useState('');
@@ -31,22 +31,43 @@ const NewProduct = ({ history }) => {
     // const alert = useAlert();
     const dispatch = useDispatch();
 
-    const { loading, error, success } = useSelector(state => state.newProduct);
+    const { error, product } = useSelector(state => state.productDetails)
+    const { loading, error: updateError, isUpdated } = useSelector(state => state.product);
+
+    const productId = match.params.id;
 
     useEffect(() => {
+        
+        if(product && product._id !== productId){
+            dispatch(getProductDetails(productId))
+        }else{
+            setId(product.name);
+            setUnitOfItem(product.unitOfItem);
+            setName(product.name);
+            setCategoryOfAsset(product.categoryOfAsset);
+            setcount(product.count);
+            setconditiontoGoods(product.conditiontoGoods);
+            setLastDateOfMovment(product.LastDateOfMovment);
+        }
 
         if (error) {
             // alert.error(error);
             dispatch(clearErrors())
         }
-
-        if (success) {
-            history.push('/admin/products');
-            // alert.success('Product created successfully');
-            dispatch({ type: NEW_PRODUCT_RESET })
+        if (updateError) {
+            // alert.error(error);
+            dispatch(clearErrors())
         }
 
-    }, [dispatch, error, success, history])
+        if (isUpdated) {
+            history.push('/admin/products');
+            // alert.success('Product created successfully');
+            dispatch({ type: UPDATE_PRODUCT_RESET })
+        }
+
+    }, [dispatch, error, isUpdated, history, updateError, product, productId])
+
+
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -65,34 +86,39 @@ const NewProduct = ({ history }) => {
         //     formData.append('images', image)
         // })
 
-        dispatch(newProduct(formData))
+        dispatch(updateProduct(product._id, formData))
     }
-
+    
+    
+    // This will be added if we want to show the picture of the product 
+    
+    
     // const onChange = e => {
 
-        // const files = Array.from(e.target.files)
+    //     const files = Array.from(e.target.files)
 
-        // setImagesPreview([]);
-        // setImages([])
+    //     setImagesPreview([]);
+    //     setImages([])
+    //     setOldImages([])
 
-        // files.forEach(file => {
-        //     const reader = new FileReader();
+    //     files.forEach(file => {
+    //         const reader = new FileReader();
 
-        //     reader.onload = () => {
-        //         if (reader.readyState === 2) {
-        //             setImagesPreview(oldArray => [...oldArray, reader.result])
-        //             setImages(oldArray => [...oldArray, reader.result])
-        //         }
-        //     }
+    //         reader.onload = () => {
+    //             if (reader.readyState === 2) {
+    //                 setImagesPreview(oldArray => [...oldArray, reader.result])
+    //                 setImages(oldArray => [...oldArray, reader.result])
+    //             }
+    //         }
 
-        //     reader.readAsDataURL(file)
-        // })
+    //         reader.readAsDataURL(file)
+    //     })
     // }
 
 
     return (
         <Fragment>
-            <MetaData title={'New Product'} />
+            <MetaData title={'Update Product'} />
             <div className="row">
                 <div className="col-12 col-md-2">
                     <Sidebar />
@@ -102,7 +128,7 @@ const NewProduct = ({ history }) => {
                     <Fragment>
                         <div className="wrapper my-5">
                             <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                                <h1 className="mb-4">New Product</h1>
+                                <h1 className="mb-4">Update Product</h1>
 
                                 <div className="form-group">
                                     <label htmlFor="id_field">ID</label>
@@ -219,7 +245,7 @@ const NewProduct = ({ history }) => {
                                     className="btn btn-block py-3"
                                     disabled={loading ? true : false}
                                 >
-                                    CREATE
+                                    UPDATE
                                 </button>
 
                             </form>
@@ -232,4 +258,4 @@ const NewProduct = ({ history }) => {
     )
 }
 
-export default NewProduct
+export default UpdateProduct

@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from 'react-redux';
 
+// Front page components
 import Header from "./component/layouts/Header";
 import Footer from "./component/layouts/Footer";
-
 import Home from "./component/Home";
 
 // Auth or User Imports

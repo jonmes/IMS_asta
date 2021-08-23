@@ -51,17 +51,17 @@ const UpdateProduct = ({ match, history }) => {
         }
 
         if (error) {
-            // alert.error(error);
+            alert(error);
             dispatch(clearErrors())
         }
         if (updateError) {
-            // alert.error(error);
+            alert(error);
             dispatch(clearErrors())
         }
 
         if (isUpdated) {
             history.push('/admin/products');
-            // alert.success('Product created successfully');
+            alert('Product updated successfully');
             dispatch({ type: UPDATE_PRODUCT_RESET })
         }
 
@@ -86,7 +86,9 @@ const UpdateProduct = ({ match, history }) => {
         //     formData.append('images', image)
         // })
 
-        dispatch(updateProduct(product._id, formData))
+        dispatch(updateProduct(product._id, formData));
+        alert('Product updated successfully');
+
     }
     
     
@@ -128,7 +130,7 @@ const UpdateProduct = ({ match, history }) => {
                     <Fragment>
                         <div className="wrapper my-5">
                             <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                                <h1 className="mb-4">Update Product</h1>
+                                <h1 className="mb-4">Update Item</h1>
 
                                 <div className="form-group">
                                     <label htmlFor="id_field">No</label>

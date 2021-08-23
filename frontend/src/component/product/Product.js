@@ -21,7 +21,7 @@ const Request = styled(Link)`
 
 `
 
-const Product = ({ product }) => {
+const Product = ({ product, user }) => {
   return <a
   href="#!"
   class="list-group-item list-group-item-action"
@@ -34,7 +34,7 @@ const Product = ({ product }) => {
   <span className="total"> {product.count} </span>
   <span className="condition"> {product.conditiontoGoods} </span>
   <span className="last-movment"> {product.LastDateOfMovment} </span>
-  <Request to={`/product/${product._id}`}>Request</Request>
+  <Request to={`${user}/product/${product._id}`}>Request</Request>
 </a>;
 };
 

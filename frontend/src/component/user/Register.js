@@ -34,7 +34,7 @@ const Register = ({ history }) => {
     }
 
     if (error) {
-    //   alert.error(error);
+      alert(error);
       dispatch(clearErrors());
     }
   }, [dispatch, isAuthenticated, error, history]);
@@ -50,6 +50,12 @@ const Register = ({ history }) => {
     formData.set("avatar", avatar);
 
     dispatch(register(formData));
+    if(error){
+      alert("Registration Failed \nPlease Fill All The Required Informations");
+    }else{
+      alert("Successfully Registered");
+    }
+
   };
 
   const onChange = (e) => {

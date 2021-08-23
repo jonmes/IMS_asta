@@ -17,12 +17,12 @@ const NewPassword = ({ history, match }) => {
 
   useEffect(() => {
     if (error) {
-      // alert.error(error);
+      alert(error);
       dispatch(clearErrors());
     }
 
     if (success) {
-      // alert.success('Password updated successfully')
+      alert('Password updated successfully')
       history.push("/login");
     }
   }, [dispatch, error, success, history]);

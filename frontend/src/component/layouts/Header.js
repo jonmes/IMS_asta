@@ -84,9 +84,15 @@ const Header = () => {
                     Dashboard
                   </Link>
                 ) : (
+                  <Fragment>
                   <Link className="dropdown-item" to="/orders/me">
-                    Orders
+                    Requests
                   </Link>
+                  <Link className="dropdown-item" to="/belonging/me">
+                    Belongings
+                  </Link>
+                  </Fragment>
+                  
                 )}
                 <Link className="dropdown-item" to="/me">
                   Profile

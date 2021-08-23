@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import { productsReducer, newProductReducer, productReducer, productDetailsReducer } from './reducers/productReducers'
-import { authReducer, userReducer, forgotPasswordReducer } from "./reducers/userReducers";
+import { authReducer, userReducer, forgotPasswordReducer, allUsersReducer, userDetailsReducer } from "./reducers/userReducers";
 
 const reducer = combineReducers({
     product: productsReducer,
@@ -13,6 +13,8 @@ const reducer = combineReducers({
     auth: authReducer,
     user: userReducer,
     forgotPassword: forgotPasswordReducer,
+    allUsers: allUsersReducer,
+    userDetails: userDetailsReducer,
 });
 
 let initialState = {};

@@ -24,6 +24,8 @@ import Dashboard from "./component/admin/Dashboard";
 import ProductsList from "./component/admin/ProductsList";
 import NewProduct from "./component/admin/NewProduct";
 import UpdateProduct from "./component/admin/UpdateProduct";
+import UsersList from "./component/admin/UsersList";
+import UpdateUser from "./component/admin/UpdateUser";
 
 import ProtectedRoute from "./component/route/ProtectedRoute";
 import { loadUser, updatePassword } from "./actions/userActions";
@@ -61,6 +63,9 @@ function App() {
             <ProtectedRoute path="/admin/products" isAdmin={true} component={ProductsList} exact />
             <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact/>
             <ProtectedRoute path="/admin/product/:id" isAdmin={true} component={UpdateProduct} exact/>
+            <ProtectedRoute path="/admin/users" isAdmin={true} component={UsersList} exact/>
+            <ProtectedRoute path="/admin/user/:id" isAdmin={true} component={UpdateUser} exact/>
+
 
 
            {!loading && (!isAuthenticated || user.role !== 'admin') && (

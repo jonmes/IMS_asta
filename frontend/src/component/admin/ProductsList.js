@@ -23,17 +23,17 @@ const ProductsList = ({ history }) => {
         dispatch(getAdminProducts());
 
         if (error) {
-            // alert.error(error);
+            alert(error);
             dispatch(clearErrors())
         }
 
         if (deleteError) {
-            // alert.error(deleteError);
+            alert(deleteError);
             dispatch(clearErrors())
         }
 
         if (isDeleted) {
-            // alert.success('Product deleted successfully');
+            alert('Product deleted successfully');
             history.push('/admin/products');
             dispatch({ type: DELETE_PRODUCT_RESET })
         }
@@ -94,7 +94,7 @@ const ProductsList = ({ history }) => {
                 category:product.categoryOfAsset,
                 stock: product.count,
                 condition:product.conditiontoGoods,
-                lastDateOfMovement: product.lastDateOfMovement,
+                LastDateOfMovement: product.LastDateOfMovement,
                 actions: <Fragment>
                     <Link to={`/admin/product/${product._id}`} className="btn btn-primary py-1 px-2">
                         <i className="fa fa-pencil"></i>
@@ -111,6 +111,8 @@ const ProductsList = ({ history }) => {
 
     const deleteProductHandler = (id) => {
         dispatch(deleteProduct(id))
+        alert('Product deleted successfully');
+
     }
 
     return (
@@ -123,7 +125,7 @@ const ProductsList = ({ history }) => {
 
                 <div className="col-12 col-md-10">
                     <Fragment>
-                        <h1 className="my-5">All Products</h1>
+                        <h1 className="my-5">All Items</h1>
 
                         {loading ? <Loader /> : (
                             <MDBDataTable

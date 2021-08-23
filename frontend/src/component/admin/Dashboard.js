@@ -9,14 +9,14 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { getAdminProducts } from '../../actions/productActions'
 // import { allOrders } from '../../actions/orderActions'
-// import { allUsers } from '../../actions/userActions'
+import { allUsers } from '../../actions/userActions'
 
 const Dashboard = ({loading}) => {
 
   const dispatch = useDispatch();
 
     const { products } = useSelector(state => state.products)
-    // const { users } = useSelector(state => state.allUsers)
+    const { users } = useSelector(state => state.allUsers)
     // const { orders, totalAmount, loading } = useSelector(state => state.allOrders)
 
     let outOfStock = 0;
@@ -29,7 +29,7 @@ const Dashboard = ({loading}) => {
     useEffect(() => {
         dispatch(getAdminProducts())
         // dispatch(allOrders())
-        // dispatch(allUsers())
+        dispatch(allUsers())
     }, [dispatch])
 
 
@@ -41,7 +41,7 @@ const Dashboard = ({loading}) => {
         </div>
 
         <div className="col-12 col-md-10">
-          <h1 className="my-4">Dashboard</h1>
+          {/* <h1 className="my-4">Dashboard</h1> */}
 
           {loading ? (
             <Loader />
@@ -54,8 +54,11 @@ const Dashboard = ({loading}) => {
                   <div className="card text-white bg-primary o-hidden h-100">
                     <div className="card-body">
                       <div className="text-center card-font-size">
-                        Total Amount
-                        <br /> <b>67</b>
+                        <br /> <b>
+                        <h1>Dashboard</h1>
+                        </b>
+                        <br /> <b></b>
+
                       </div>
                     </div>
                   </div>
@@ -67,7 +70,7 @@ const Dashboard = ({loading}) => {
                   <div className="card text-white bg-success o-hidden h-100">
                     <div className="card-body">
                       <div className="text-center card-font-size">
-                        Products
+                        Items
                         <br /> <b>{products && products.length}</b>
                       </div>
                     </div>
@@ -108,7 +111,7 @@ const Dashboard = ({loading}) => {
                     <div className="card-body">
                       <div className="text-center card-font-size">
                         Users
-                        <br /> <b>4</b>
+                        <br /> <b>{users && users.length}</b>
                       </div>
                     </div>
                     <Link

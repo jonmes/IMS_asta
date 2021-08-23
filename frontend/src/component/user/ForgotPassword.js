@@ -18,12 +18,12 @@ const ForgotPassword = () => {
     useEffect(() => {
 
         if (error) {
-            // alert.error(error);
+            alert(error);
             dispatch(clearErrors());
         }
         
         if (message) {
-            // alert.success(message)
+            alert(message)
         }
 
     }, [dispatch, error, message])

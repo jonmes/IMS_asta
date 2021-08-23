@@ -36,13 +36,13 @@ const NewProduct = ({ history }) => {
     useEffect(() => {
 
         if (error) {
-            // alert.error(error);
+            alert(error);
             dispatch(clearErrors())
         }
 
         if (success) {
             history.push('/admin/products');
-            // alert.success('Product created successfully');
+            alert('Product created successfully');
             dispatch({ type: NEW_PRODUCT_RESET })
         }
 
@@ -102,7 +102,7 @@ const NewProduct = ({ history }) => {
                     <Fragment>
                         <div className="wrapper my-5">
                             <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                                <h1 className="mb-4">New Product</h1>
+                                <h1 className="mb-4">New Item</h1>
 
                                 <div className="form-group">
                                     <label htmlFor="id_field">No</label>

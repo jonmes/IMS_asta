@@ -26,14 +26,15 @@ const Login = ({ history, location }) => {
       history.push(redirect);
     }
     if (error) {
-    //   alert.error(error);
+      alert(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, isAuthenticated, error, history]);
+  }, [dispatch, redirect, isAuthenticated, error, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login(email, password));
+    alert("Logged in Successfully!");
   };
 
   return (

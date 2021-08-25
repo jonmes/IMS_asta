@@ -189,7 +189,6 @@ exports.createProductReview = catchAsyncErrors(async(req, res, next) => {
     const isReviewed = product.reviews.find(
         r => r.user.toString() === req.user._id.toString()
     )
-
     if (isReviewed) {
         product.reviews.forEach(review => {
             if (review.user.toString() === req.user._id.toString()) {

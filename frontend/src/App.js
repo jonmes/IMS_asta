@@ -8,6 +8,9 @@ import Header from "./component/layouts/Header";
 import Footer from "./component/layouts/Footer";
 
 import Home from "./component/Home";
+import ProductDetails from "./component/product/ProductDetails";
+import Cart from "./component/cart/Cart";
+
 
 // Auth or User Imports
 import Login from "./component/login/Login";
@@ -48,6 +51,8 @@ function App() {
         
           <div className="container container-fluid home-list">
             <Route path="/" component={Home} exact />
+            <Route path="/product/:id" component={ProductDetails} exact />
+            <Route path="/request" component={Cart} exact/>
             <Route path="/search/:keyword" component={Home} />
             <Route path="/login" component={Logins} />
             <Route path="/register" component={Register} />
@@ -56,6 +61,7 @@ function App() {
             <ProtectedRoute path="/me" component={Profile} exact />
             <ProtectedRoute path="/me/update" component={UpdateProfile} exact />
             <ProtectedRoute path="/password/update" component={UpdatePassword} exact/>
+
             
 
           </div>

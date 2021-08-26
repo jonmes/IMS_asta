@@ -44,10 +44,22 @@ const Home = ({ match }) => {
         ) : (
           <Fragment>
             <MetaData title={"Home"} />
-            
+            {keyword ? <></>: (
+            <a href="#!" class="list list-group-item-dark">
+              <span className="number"> No </span>
+              <span className="unit"> Unit </span>
+              <span className="name"> Name </span>
+              <span className="category"> Category </span>
+              <span className="total"> Stock </span>
+              <span className="condition"> Condition </span>
+              <span className="last-movment"> Last Data of Movement </span>
+              <span className="request"> Detail </span>
+            </a>)
+}
 
           {keyword ? (
             <Fragment>
+              
 
 {/*     ======================  Filter By Category   ======================= */}
                   <div className="mt-5">
@@ -79,7 +91,7 @@ const Home = ({ match }) => {
               <span className="total"> Stock </span>
               <span className="condition"> Condition </span>
               <span className="last-movment"> Last Data of Movement </span>
-              <span className="request"> Request </span>
+              <span className="request"> Detail </span>
             </a>
 
 

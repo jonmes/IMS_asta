@@ -75,7 +75,7 @@ const ProductsList = ({ history }) => {
                 },
                 {
                     label: 'Last Date Of Movement',
-                    field: 'lastDateOfMovement',
+                    field: 'LastDateOfMovment',
                     sort: 'asc'
                 },
                 {
@@ -94,7 +94,7 @@ const ProductsList = ({ history }) => {
                 category:product.categoryOfAsset,
                 stock: product.count,
                 condition:product.conditiontoGoods,
-                LastDateOfMovement: product.LastDateOfMovement,
+                LastDateOfMovment: product.LastDateOfMovment,
                 actions: <Fragment>
                     <Link to={`/admin/product/${product._id}`} className="btn btn-primary py-1 px-2">
                         <i className="fa fa-pencil"></i>

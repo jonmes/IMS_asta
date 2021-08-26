@@ -15,7 +15,7 @@ const NewProduct = ({ history }) => {
     const [name, setName] = useState('');
     // const [description, setDescription] = useState('');
     const [categoryOfAsset, setCategoryOfAsset] = useState('');
-    const [count, setcount] = useState(0);
+    const [count, setcount] = useState(1);
     const [conditiontoGoods, setconditiontoGoods] = useState('');
     const [LastDateOfMovment, setLastDateOfMovment] = useState('');
 

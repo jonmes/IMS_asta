@@ -34,7 +34,7 @@ const Product = ({ product, user }) => {
   <span className="total"> {product.count} </span>
   <span className="condition"> {product.conditiontoGoods} </span>
   <span className="last-movment"> {product.LastDateOfMovment} </span>
-  <Request to={`${user}/product/${product._id}`}>Request</Request>
+  <Request to={`/product/${product._id}`}>View</Request>
 </a>;
 };
 

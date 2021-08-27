@@ -10,6 +10,15 @@ import Footer from "./component/layouts/Footer";
 import Home from "./component/Home";
 import ProductDetails from "./component/product/ProductDetails";
 import Cart from "./component/cart/Cart";
+import Shipping from "./component/cart/Shipping";
+import ConfirmOrder from "./component/cart/ConfirmOrder";
+import Payment from "./component/cart/Payment";
+import OrderSuccess from "./component/cart/OrderSuccess";
+import ListOrders from "./component/order/ListOrder";
+import OrderDetails from "./component/order/OrderDetails";
+
+
+
 
 
 // Auth or User Imports
@@ -58,9 +67,21 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/password/forgot" component={ForgotPassword} exact />
             <Route path="/password/reset/:token" component={NewPassword} exact />
+
+            
+            {/* Protected Routes */}
             <ProtectedRoute path="/me" component={Profile} exact />
             <ProtectedRoute path="/me/update" component={UpdateProfile} exact />
             <ProtectedRoute path="/password/update" component={UpdatePassword} exact/>
+            <ProtectedRoute path="/shipping" component={Shipping}/>
+            <ProtectedRoute path="/order/confirm" component={ConfirmOrder}/>
+            <ProtectedRoute path="/payment" component={Payment}/>
+            <ProtectedRoute path="/success" component={OrderSuccess}/>
+            <ProtectedRoute path="/orders/me" component={ListOrders}/>
+            <ProtectedRoute path="/order/:id" component={OrderDetails}/>
+
+
+
 
             
 

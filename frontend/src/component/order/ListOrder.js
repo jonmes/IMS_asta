@@ -2,16 +2,16 @@ import React, { Fragment, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MDBDataTable } from 'mdbreact'
 
-import MetaData from '../layout/MetaData'
-import Loader from '../layout/Loader'
+import MetaData from '../layouts/MetaData'
+import Loader from '../layouts/Loader'
 
-import { useAlert } from 'react-alert'
+// import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { myOrders, clearErrors } from '../../actions/orderActions'
 
 const ListOrders = () => {
 
-    const alert = useAlert();
+    // const alert = useAlert();
     const dispatch = useDispatch();
 
     const { loading, error, orders } = useSelector(state => state.myOrders);
@@ -20,10 +20,10 @@ const ListOrders = () => {
         dispatch(myOrders());
 
         if (error) {
-            alert.error(error);
+            alert(error);
             dispatch(clearErrors())
         }
-    }, [dispatch, alert, error])
+    }, [dispatch, error])
 
     const setOrders = () => {
         const data = {
@@ -31,6 +31,11 @@ const ListOrders = () => {
                 {
                     label: 'Order ID',
                     field: 'id',
+                    sort: 'asc'
+                },
+                {
+                    label: 'Item Name',
+                    field: 'itemName',
                     sort: 'asc'
                 },
                 {
@@ -60,8 +65,9 @@ const ListOrders = () => {
         orders.forEach(order => {
             data.rows.push({
                 id: order._id,
-                numOfItems: order.orderItems.length,
-                amount: `$${order.totalPrice}`,
+                itemName: order.orderItems[0].name,
+                numOfItems: order.orderItems[0].quantity,
+                // amount: `$${order.totalPrice}`,
                 status: order.orderStatus && String(order.orderStatus).includes('Delivered')
                     ? <p style={{ color: 'green' }}>{order.orderStatus}</p>
                     : <p style={{ color: 'red' }}>{order.orderStatus}</p>,

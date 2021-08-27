@@ -80,11 +80,11 @@ const Header = () => {
                 className="dropdown-menu"
                 aria-labelledby="dropDownMenuButton"
               >
-                {user && user.role === "admin" ? (
+                {user && user.role === "admin" && (
                   <Link className="dropdown-item" to="/dashboard">
                     Dashboard
                   </Link>
-                ) : (
+                )}
                   <Fragment>
                   <Link className="dropdown-item" to="/orders/me">
                     Requests
@@ -93,8 +93,6 @@ const Header = () => {
                     Belongings
                   </Link>
                   </Fragment>
-                  
-                )}
                 <Link className="dropdown-item" to="/me">
                   Profile
                 </Link>

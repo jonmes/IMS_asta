@@ -8,7 +8,7 @@ import Sidebar from "./Sidebar";
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getAdminProducts } from '../../actions/productActions'
-// import { allOrders } from '../../actions/orderActions'
+import { allOrders } from '../../actions/orderActions'
 import { allUsers } from '../../actions/userActions'
 
 const Dashboard = ({loading}) => {
@@ -17,7 +17,7 @@ const Dashboard = ({loading}) => {
 
     const { products } = useSelector(state => state.products)
     const { users } = useSelector(state => state.allUsers)
-    // const { orders, totalAmount, loading } = useSelector(state => state.allOrders)
+    const { orders } = useSelector(state => state.allOrders)
 
     let outOfStock = 0;
     products.forEach(product => {
@@ -28,7 +28,7 @@ const Dashboard = ({loading}) => {
 
     useEffect(() => {
         dispatch(getAdminProducts())
-        // dispatch(allOrders())
+        dispatch(allOrders())
         dispatch(allUsers())
     }, [dispatch])
 
@@ -91,7 +91,7 @@ const Dashboard = ({loading}) => {
                     <div className="card-body">
                       <div className="text-center card-font-size">
                         Orders
-                        <br /> <b>123</b>
+                        <br /> <b>{orders && orders.length}</b>
                       </div>
                     </div>
                     <Link
